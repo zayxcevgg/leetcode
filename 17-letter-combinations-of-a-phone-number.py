@@ -1,5 +1,5 @@
 from typing import List
-
+import itertools
 
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
@@ -13,12 +13,29 @@ class Solution:
             "8": "tuv",
             "9": "wxyz"
             }
-        options = []
-        for i in digits:
-            answers = keyboard[i]
-            for x, y in enumerate(answers):
-                options[x] = y
+        
+        usedLetters = []  
+        for digit in digits:
+            usedLetters.append(list(keyboard[digit]))
+        print(usedLetters)
+
+        for usedKey in range(usedLetters):
+            for j in usedKey:
+                print(usedLetters[usedKey][j])
+            
+               #
+        
 
 
-    digits = "23"
-    letterCombinations(0, digits)
+                    
+        #return result
+        
+        #return list(itertools.product(*usedLetters))
+
+
+    
+
+
+obj = Solution()
+digits = "23"
+obj.letterCombinations(digits)
